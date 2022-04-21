@@ -18,7 +18,7 @@ function App() {
         href = "https://reactjs.org"
         target = "_blank"
         rel = "noopener noreferrer" >
-        Learn React koladiya <
+        Learn React koladiya ashit <
         /a> < /
         header > <
         /div>
