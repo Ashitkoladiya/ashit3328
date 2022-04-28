@@ -3,10 +3,11 @@ import './App.css';
 
 function App() {
     return ( <
-        div className = "App" >
-        <
-        header className = "App-header" >
-        <
+       
+        let ashit = [10,20,30,40,50]; ashit.map((a,i) => console.log(a));
+        <div className = "App" >
+       <header className = "App-header" >
+        
         img src = { logo }
         className = "App-logo"
         alt = "logo" / >
