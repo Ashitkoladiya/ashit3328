@@ -1,56 +1,93 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  // array function
-  let ashit = [10,"ashit",20,30,40,50]; //normal array
+
+function App(){
+
+const data =
+ [
+    {
+      id: 101,
+      name: 'Abacavir',
+      quantity: 25,
+      price: 150,
+      expiry: 2022,
+      status: true
+    },
+    {
+      id: 102,
+      name: 'Eltrombopag',
+      quantity: 90,
+      price: 550,
+      expiry: 2021,
+      status: true
+    },
+    {
+      id: 103,
+      name: 'Meloxicam',
+      quantity: 85,
+      price: 450,
+      expiry: 2025,
+      status: false
+    },
+    {
+      id: 104,
+      name: 'Allopurinol',
+      quantity: 50,
+      price: 600,
+      expiry: 2023,
+      status: true
+    },
+    {
+      id: 105,
+      name: 'Phenytoin',
+      quantity: 63,
+      price: 250,
+      expiry: 2021,
+      status: false
+    }
+  ];
+  let filterdata = data.filter((d , i) => d.expiry >= 2022)
+   console.log(filterdata);
   
-  
 
-  // ashit.push(99);// add element fast
-
-  // ashit.unshift(99);
-
-  // ashit.pop()//remove element last
-
-  // ashit.shift();
-
-  // ashit.splice(3,0,100);//add element at sefecific position
-
-  // ashit.splice(2,1);//remove element from 2nd index
-
-  // console.log(ashit.toString());
-  // console.log(ashit);
-
-  // let res = ashit.some((a)=> a>10);//check array return true / false
-
-// let res =ashit.find ((a)=> a>10);//check array within array return first match element
-
-// let res =Array.isArray(ashit);// check given element is array or  not
-console.log(res);
-
-
-
-
+//  data.map((value , index)=>console.log(value.id , value.name)); 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <table border="1px solid black">
+      <th>
+        <td>id</td>
+        <td>name</td>
+      </th>
+     <tr>
+       
+       {
+          data.map((value , index)=>{
+            return (
+              <tr>
+                <td>{value.id}</td>
+                <td>{value.name}</td>
+              </tr>
+            )
+          })
+       }
+
+       {
+          filterdata.map((value , index)=>{
+            return (
+              <tr>
+                <td>{value.expiry}</td>
+              </tr>
+            )
+          })
+
+       }
+
+       
+     </tr>
+     
+    </table>
+    </>
   );
 }
 
-export default App;
+export default App; 
