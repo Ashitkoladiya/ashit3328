@@ -2,15 +2,14 @@
 
 function App(){
 
-const data =
- [
+  const data = [
     {
       id: 101,
       name: 'Abacavir',
       quantity: 25,
       price: 150,
       expiry: 2022,
-      status: true
+      status: true 
     },
     {
       id: 102,
@@ -18,7 +17,7 @@ const data =
       quantity: 90,
       price: 550,
       expiry: 2021,
-      status: true
+      status: true 
     },
     {
       id: 103,
@@ -26,7 +25,7 @@ const data =
       quantity: 85,
       price: 450,
       expiry: 2025,
-      status: false
+      status: false 
     },
     {
       id: 104,
@@ -34,7 +33,7 @@ const data =
       quantity: 50,
       price: 600,
       expiry: 2023,
-      status: true
+      status: true 
     },
     {
       id: 105,
@@ -42,52 +41,87 @@ const data =
       quantity: 63,
       price: 250,
       expiry: 2021,
-      status: false
+      status: false 
     }
   ];
-  let filterdata = data.filter((d , i) => d.expiry >= 2022)
-   console.log(filterdata);
   
-
-//  data.map((value , index)=>console.log(value.id , value.name)); 
-
-  return (
-    <>
-    <table border="1px solid black">
-      <th>
-        <td>id</td>
-        <td>name</td>
-      </th>
-     <tr>
-       
-       {
-          data.map((value , index)=>{
-            return (
+  
+  // destructure
+  
+  let[id1]=data;
+  console.log(id1);
+  
+  
+  console.log(data.map((i) => {return i})); 
+  // data.map((d,i) => console.log(d.id,d.name));
+  
+  // console.log(data.filter((f) => {return f.expiry >= 2022}));
+  
+  let med = data.filter((f) => {return f.expiry >= 2022});
+  console.log(med);
+  
+  let ans = med.reduce((acc, d, i) => acc + d.price, 0);
+  console.log(ans);
+  
+  let ans1 = data.reduce((acc, d, i) => acc + d.price, 0);
+  console.log(ans1);
+          return(
+            <>
+            <h4>Medicine Data</h4>
+            <table border = "1">
               <tr>
-                <td>{value.id}</td>
-                <td>{value.name}</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Expiry</th>
+                <th>Total-Price</th>
               </tr>
-            )
-          })
-       }
-
-       {
-          filterdata.map((value , index)=>{
-            return (
+              <tbody>
+                {
+                  data.map((data,index) => {
+                    return(
+                      <tr>
+                        <td>{data.id}</td>
+                        <td>{data.name}</td>
+                        <td>{data.quantity}</td>
+                        <td>{data.price}</td>
+                        <td>{data.expiry}</td>
+                        {index === 0 ? <td rowspan = {data.length = "5"} > {ans1} </td> : null}  
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+        
+            <br></br>
+            <h4>Medicine Data-1</h4>
+            <table border = "1">
               <tr>
-                <td>{value.expiry}</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Expiry</th>
+                <th>Total-Price</th>
               </tr>
-            )
-          })
-
-       }
-
-       
-     </tr>
-     
-    </table>
-    </>
-  );
-}
-
+              <tbody>
+                {
+                  med.map((data,index) => {
+                    return(
+                      <tr>
+                        <td>{data.id}</td>
+                        <td>{data.name}</td>
+                        <td>{data.quantity}</td>
+                        <td>{data.price}</td>
+                        <td>{data.expiry}</td>
+                        {index === 0 ? <td rowspan = {data.length = "5"} > {ans} </td> : null}  
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+            </>
 export default App; 
